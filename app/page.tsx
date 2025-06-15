@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Download, Zap, ShieldCheck, Rocket } from "lucide-react"
 import Image from "next/image"
 import { Suspense } from "react"
-import AudioPlayer from "@/components/audio-player" // Assuming this component is correct from previous steps
+import AudioPlayer from "@/components/audio-player"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
     description:
       "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
-    url: "https://vibetunnel.sh", // Replace with your actual domain
+    url: "https://vibetunnel.sh",
     siteName: "Vibetunnel",
     images: [
       {
-        url: "https://vibetunnel.sh/vibetunnel-icon.png", // Replace with your actual domain
+        url: "https://vibetunnel.sh/vibetunnel-icon.png",
         width: 512,
         height: 512,
         alt: "Vibetunnel Logo",
@@ -43,16 +43,13 @@ export const metadata: Metadata = {
     title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
     description:
       "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
-    images: ["https://vibetunnel.sh/vibetunnel-icon.png"], // Replace with your actual domain. Must be an absolute URL.
-    // creator: '@yourhandle', // Optional: Twitter handle of the content creator
-    // site: '@vibetunnelapp', // Optional: Twitter handle of the website
+    images: ["https://vibetunnel.sh/vibetunnel-icon.png"],
   },
 }
 
 export default function Home() {
   return (
     <div className="bg-[#0D1117] text-[#C9D1D9] font-mono min-h-screen antialiased">
-      {/* ... rest of your page content ... */}
       <div className="container mx-auto px-4 py-8 md:py-16">
         <header className="flex items-center justify-center md:justify-start gap-4 mb-8">
           <Image

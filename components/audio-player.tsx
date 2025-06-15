@@ -41,17 +41,31 @@ export default function AudioPlayer({ src }: { src: string }) {
 
     audioElement.addEventListener("error", logError)
 
+    // Attempt to play on mount if interaction has already happened (e.g. page navigation)
+    // This might be too aggressive or might not work due to autoplay policies.
+    // A more robust solution might involve global state for interaction.
+    if (hasInteracted && !isPlaying) {
+      audioElement
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.warn("Autoplay on mount/interaction failed:", err)
+          // setAudioError("Click play to start audio."); // Optionally inform user
+        })
+    }
+
     return () => {
       audioElement.removeEventListener("error", logError)
     }
-  }, [])
+  }, [src, hasInteracted, isPlaying]) // Added src to dependencies, if it can change
 
   useEffect(() => {
     const handleInteraction = () => {
       if (!hasInteracted) {
         setHasInteracted(true)
         // Try to play immediately after first interaction
-        if (audioRef.current && !isPlaying) {
+        if (audioRef.current && !isPlaying && audioRef.current.paused) {
+          // Check if paused
           audioRef.current
             .play()
             .then(() => {
@@ -60,30 +74,33 @@ export default function AudioPlayer({ src }: { src: string }) {
             })
             .catch((error) => {
               console.warn("Audio autoplay after interaction failed:", error)
-              setAudioError("Playback failed. Try manually clicking play.")
+              // setAudioError("Playback failed. Try manually clicking play.")
               setIsPlaying(false)
             })
         }
       }
       // Clean up listeners after first interaction
-      window.removeEventListener("click", handleInteraction)
-      window.removeEventListener("keydown", handleInteraction)
-      window.removeEventListener("touchstart", handleInteraction)
+      window.removeEventListener("click", handleInteraction, { capture: true }) // Use capture for broader interaction detection
+      window.removeEventListener("keydown", handleInteraction, { capture: true })
+      window.removeEventListener("touchstart", handleInteraction, { capture: true })
     }
 
-    window.addEventListener("click", handleInteraction)
-    window.addEventListener("keydown", handleInteraction)
-    window.addEventListener("touchstart", handleInteraction) // For mobile
+    // Add listeners with capture to ensure they fire early
+    window.addEventListener("click", handleInteraction, { capture: true })
+    window.addEventListener("keydown", handleInteraction, { capture: true })
+    window.addEventListener("touchstart", handleInteraction, { capture: true })
 
     return () => {
-      window.removeEventListener("click", handleInteraction)
-      window.removeEventListener("keydown", handleInteraction)
-      window.removeEventListener("touchstart", handleInteraction)
+      window.removeEventListener("click", handleInteraction, { capture: true })
+      window.removeEventListener("keydown", handleInteraction, { capture: true })
+      window.removeEventListener("touchstart", handleInteraction, { capture: true })
     }
   }, [hasInteracted, isPlaying])
 
   const togglePlayPause = () => {
     if (!audioRef.current) return
+    if (!hasInteracted) setHasInteracted(true) // Ensure interaction is registered
+
     if (isPlaying) {
       audioRef.current.pause()
       setIsPlaying(false)

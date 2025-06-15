@@ -105,7 +105,7 @@ function SceneContent() {
       <AnimatedText />
       <Tunnel />
       <Rig />
-      <AsciiRenderer fgColor="#39FF14" bgColor="transparent" resolution={0.25} characters=" .:-+*=%@#" invert />
+      <AsciiRenderer fgColor="#39FF14" bgColor="transparent" resolution={0.2} characters=" .:-+*=%@#" invert />
     </>
   )
 }

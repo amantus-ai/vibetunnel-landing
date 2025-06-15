@@ -3,13 +3,20 @@ import { Button } from "@/components/ui/button"
 import { Download, Zap, ShieldCheck, Rocket } from "lucide-react"
 import Image from "next/image"
 import { Suspense } from "react"
+import AudioPlayer from "@/components/audio-player"
 
 export default function Home() {
   return (
     <div className="bg-[#0D1117] text-[#C9D1D9] font-mono min-h-screen antialiased">
       <div className="container mx-auto px-4 py-8 md:py-16">
         <header className="flex items-center justify-center md:justify-start gap-4 mb-8">
-          <Image src="/logo.png" alt="Vibetunnel Logo" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10" />
+          <Image
+            src="/vibetunnel-icon.png"
+            alt="Vibetunnel Logo"
+            width={40}
+            height={40}
+            className="w-8 h-8 md:w-10 md:h-10"
+          />
           <h1 className="text-3xl md:text-4xl font-bold text-white">vibetunnel</h1>
         </header>
 
@@ -35,10 +42,10 @@ export default function Home() {
           </div>
 
           <section className="max-w-4xl mx-auto mt-12 md:mt-20 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white">Your Secure Gateway to the Digital Cosmos.</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Turn any browser into your Mac’s terminal.</h2>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-              Vibetunnel is a next-generation application for macOS that provides a secure, private, and blazing-fast
-              connection, wrapped in a unique, retro-inspired terminal interface.
+              VibeTunnel proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
+              scroll in real-time, type new commands, and spawn fresh sessions on the fly.
             </p>
             <Button className="mt-8 bg-green-500 hover:bg-green-600 text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
               <Download className="mr-2 h-5 w-5" />
@@ -82,6 +89,7 @@ export default function Home() {
           <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights reserved.</p>
         </footer>
       </div>
+      <AudioPlayer src="/audio/vibetunnel-80s-theme.mp3" />
     </div>
   )
 }

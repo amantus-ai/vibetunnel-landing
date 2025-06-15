@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Download, Zap, ShieldCheck, Rocket } from "lucide-react"
 import Image from "next/image"
 import { Suspense } from "react"
-import AudioPlayer from "@/components/audio-player"
+import AudioPlayer from "@/components/audio-player" // Assuming this component is correct from previous steps
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -52,6 +52,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="bg-[#0D1117] text-[#C9D1D9] font-mono min-h-screen antialiased">
+      {/* ... rest of your page content ... */}
       <div className="container mx-auto px-4 py-8 md:py-16">
         <header className="flex items-center justify-center md:justify-start gap-4 mb-8">
           <Image
@@ -130,7 +131,7 @@ export default function Home() {
         </main>
 
         <footer className="text-center mt-16 md:mt-24 py-8 border-t border-gray-800">
-          <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights reserved.</p>
+          <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights. reserved.</p>
         </footer>
       </div>
       <AudioPlayer src="/audio/game-8-bit-on-short-278081.mp3" />

@@ -4,6 +4,51 @@ import { Download, Zap, ShieldCheck, Rocket } from "lucide-react"
 import Image from "next/image"
 import { Suspense } from "react"
 import AudioPlayer from "@/components/audio-player"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
+  description:
+    "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
+  openGraph: {
+    title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
+    description:
+      "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
+    url: "https://your-vibetunnel-domain.com", // Replace with your actual domain
+    siteName: "Vibetunnel",
+    images: [
+      {
+        url: "https://your-vibetunnel-domain.com/vibetunnel-icon.png", // Replace with your actual domain
+        width: 512,
+        height: 512,
+        alt: "Vibetunnel Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  // You can also add Twitter specific card metadata if needed
+  // twitter: {
+  //   card: 'summary_large_image',
+  //   title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
+  //   description: 'Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser.',
+  //   images: ['https://your-vibetunnel-domain.com/vibetunnel-icon.png'], // Replace with your actual domain
+  // },
+  // If you have an icons object in your root layout, this will be merged.
+  // For favicons, Next.js also supports placing icon.png/icon.ico directly in the app directory.
+  // We already have app/icon.png for the favicon.
+}
 
 export default function Home() {
   return (
@@ -51,7 +96,7 @@ export default function Home() {
               <Download className="mr-2 h-5 w-5" />
               Download for Mac
             </Button>
-            <p className="text-sm text-gray-500 mt-2">macOS 14 or later</p>
+            <p className="text-sm text-gray-500 mt-2">macOS 14.0 or later</p>
           </section>
 
           <section className="max-w-5xl mx-auto mt-16 md:mt-24">
@@ -89,7 +134,7 @@ export default function Home() {
           <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights reserved.</p>
         </footer>
       </div>
-      <AudioPlayer src="/audio/vibetunnel-80s-chiptune-theme.mp3" />
+      <AudioPlayer src="/audio/game-8-bit-on-short-278081.mp3" />
     </div>
   )
 }

@@ -38,16 +38,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // You can also add Twitter specific card metadata if needed
-  // twitter: {
-  //   card: 'summary_large_image',
-  //   title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
-  //   description: 'Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser.',
-  //   images: ['https://your-vibetunnel-domain.com/vibetunnel-icon.png'], // Replace with your actual domain
-  // },
-  // If you have an icons object in your root layout, this will be merged.
-  // For favicons, Next.js also supports placing icon.png/icon.ico directly in the app directory.
-  // We already have app/icon.png for the favicon.
+  twitter: {
+    card: "summary_large_image",
+    title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
+    description:
+      "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
+    images: ["https://your-vibetunnel-domain.com/vibetunnel-icon.png"], // Replace with your actual domain. Must be an absolute URL.
+    // creator: '@yourhandle', // Optional: Twitter handle of the content creator
+    // site: '@vibetunnelapp', // Optional: Twitter handle of the website
+  },
 }
 
 export default function Home() {

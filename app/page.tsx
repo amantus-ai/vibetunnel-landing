@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
     description:
       "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
-    url: "https://your-vibetunnel-domain.com", // Replace with your actual domain
+    url: "https://vibetunnel.sh", // Replace with your actual domain
     siteName: "Vibetunnel",
     images: [
       {
-        url: "https://your-vibetunnel-domain.com/vibetunnel-icon.png", // Replace with your actual domain
+        url: "https://vibetunnel.sh/vibetunnel-icon.png", // Replace with your actual domain
         width: 512,
         height: 512,
         alt: "Vibetunnel Logo",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
     description:
       "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
-    images: ["https://your-vibetunnel-domain.com/vibetunnel-icon.png"], // Replace with your actual domain. Must be an absolute URL.
+    images: ["https://vibetunnel.sh/vibetunnel-icon.png"], // Replace with your actual domain. Must be an absolute URL.
     // creator: '@yourhandle', // Optional: Twitter handle of the content creator
     // site: '@vibetunnelapp', // Optional: Twitter handle of the website
   },
@@ -134,7 +134,7 @@ export default function Home() {
           <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights. reserved.</p>
         </footer>
       </div>
-      <AudioPlayer src="/audio/game-8-bit-on-short-278081.mp3" />
+      <AudioPlayer src="/audio/game-8-bit.mp3" />
     </div>
   )
 }

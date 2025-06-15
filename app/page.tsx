@@ -131,7 +131,7 @@ export default function Home() {
           <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights. reserved.</p>
         </footer>
       </div>
-      <AudioPlayer src="game-audio.mp3" />
+      <AudioPlayer src="/audio/game-audio.mp3" />
     </div>
   )
 }

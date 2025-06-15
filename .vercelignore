@@ -1,0 +1,2 @@
+# Preserve static assets during deployment
+public/audio/game-audio.mp3

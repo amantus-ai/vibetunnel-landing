@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/preserve-assets.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "node scripts/preserve-assets.js",
+    "preserve-assets": "node scripts/preserve-assets.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

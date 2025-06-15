@@ -1,90 +1,87 @@
-import AsciiTunnel from "@/components/ascii-tunnel"
-import { Button } from "@/components/ui/button" // Using shadcn button, will style with ascii-button class
+import { VibetunnelScene } from "@/components/vibetunnel-scene"
+import { Button } from "@/components/ui/button"
+import { Download, Zap, ShieldCheck, Rocket } from "lucide-react"
+import Image from "next/image"
+import { Suspense } from "react"
 
-const StaticAsciiLogo = () => {
-  const logo = `
-      *
-  *   |   *
-   \\  |  /
-*- - -O- - -*
-   /  |  \\
-  *   |   *
-      *
-`
-  return <pre className="text-center text-green-400 text-sm md:text-base">{logo}</pre>
-}
-
-export default function LandingPage() {
+export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen items-center p-4 md:p-8 selection:bg-green-700 selection:text-black">
-      <header className="w-full max-w-4xl text-center mb-8 md:mb-12">
-        <StaticAsciiLogo />
-        <h1 className="text-4xl md:text-6xl font-bold mt-4">vibetunnel</h1>
-        <p className="text-lg md:text-xl text-green-300 mt-2">Your Portal to Focused Productivity on Mac.</p>
-      </header>
+    <div className="bg-[#0D1117] text-[#C9D1D9] font-mono min-h-screen antialiased">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <header className="flex items-center justify-center md:justify-start gap-4 mb-8">
+          <Image src="/logo.png" alt="Vibetunnel Logo" width={40} height={40} className="w-8 h-8 md:w-10 md:h-10" />
+          <h1 className="text-3xl md:text-4xl font-bold text-white">vibetunnel</h1>
+        </header>
 
-      <section
-        id="animation-viewport"
-        className="w-full max-w-4xl mb-12 md:mb-20 p-2 md:p-4 border-2 border-green-600 shadow-[0_0_15px_rgba(0,255,0,0.3)]"
-      >
-        <AsciiTunnel />
-      </section>
-
-      <main className="w-full max-w-3xl space-y-16 md:space-y-24">
-        <section id="description" className="text-center">
-          <h2 className="text-2xl md:text-3xl mb-4 text-green-500">--- What is VibeTunnel? ---</h2>
-          <p className="text-base md:text-lg leading-relaxed">
-            VibeTunnel is a unique Mac application designed to immerse you in a distraction-free, terminal-inspired
-            environment. It channels your workflow into a streamlined experience, boosting focus and creativity.
-            Experience your digital world like never before.
-          </p>
-        </section>
-
-        <section id="features">
-          <h2 className="text-2xl md:text-3xl text-center mb-8 text-green-500">--- Key Features ---</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="ascii-border p-4 md:p-6">
-              <h3 className="text-xl md:text-2xl mb-3 text-green-300">Retro-Futuristic UI</h3>
-              <p className="mb-1">&gt; Fully ASCII-rendered interface.</p>
-              <p className="mb-1">&gt; Customizable terminal themes.</p>
-              <p>&gt; Smooth animations and transitions.</p>
+        <main>
+          <div className="max-w-4xl mx-auto border border-gray-700 rounded-lg shadow-2xl shadow-purple-500/10 overflow-hidden bg-black">
+            <div className="flex items-center px-4 py-2 bg-[#161B22] border-b border-gray-700">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <div className="flex-grow text-center text-sm text-gray-400">vibetunnel ~ zsh</div>
             </div>
-            <div className="ascii-border p-4 md:p-6">
-              <h3 className="text-xl md:text-2xl mb-3 text-green-300">Deep Focus Mode</h3>
-              <p className="mb-1">&gt; Minimize distractions effectively.</p>
-              <p className="mb-1">&gt; Streamlined task management.</p>
-              <p>&gt; Keyboard-centric navigation.</p>
-            </div>
-            <div className="ascii-border p-4 md:p-6">
-              <h3 className="text-xl md:text-2xl mb-3 text-green-300">Mac Optimized</h3>
-              <p className="mb-1">&gt; Native macOS performance.</p>
-              <p className="mb-1">&gt; Lightweight and resource-friendly.</p>
-              <p>&gt; Seamless integration with your workflow.</p>
-            </div>
-            <div className="ascii-border p-4 md:p-6">
-              <h3 className="text-xl md:text-2xl mb-3 text-green-300">Pure Vibe</h3>
-              <p className="mb-1">&gt; Unique visual and auditory experience.</p>
-              <p className="mb-1">&gt; Enter the tunnel, find your flow.</p>
-              <p>&gt; For coders, writers, and creators.</p>
+            <div className="w-full h-[400px] md:h-[500px] bg-black">
+              <Suspense
+                fallback={
+                  <div className="flex items-center justify-center h-full text-gray-500">Loading 3D Scene...</div>
+                }
+              >
+                <VibetunnelScene />
+              </Suspense>
             </div>
           </div>
-        </section>
 
-        <section id="cta" className="text-center">
-          <h2 className="text-2xl md:text-3xl mb-6 text-green-500">--- Enter the VibeTunnel ---</h2>
-          <Button className="ascii-button text-lg md:text-xl">Download Alpha</Button>
-          <p className="mt-6 text-sm">
-            <a href="#" className="hover:underline text-green-300">
-              Learn More &gt;_
-            </a>
-          </p>
-        </section>
-      </main>
+          <section className="max-w-4xl mx-auto mt-12 md:mt-20 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Your Secure Gateway to the Digital Cosmos.</h2>
+            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
+              Vibetunnel is a next-generation application for macOS that provides a secure, private, and blazing-fast
+              connection, wrapped in a unique, retro-inspired terminal interface.
+            </p>
+            <Button className="mt-8 bg-green-500 hover:bg-green-600 text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
+              <Download className="mr-2 h-5 w-5" />
+              Download for Mac
+            </Button>
+            <p className="text-sm text-gray-500 mt-2">macOS 12.0 or later</p>
+          </section>
 
-      <footer className="w-full max-w-3xl text-center mt-16 md:mt-24 pt-8 border-t border-green-700">
-        <p className="text-sm text-green-500">&copy; {new Date().getFullYear()} VibeTunnel. All rights reserved.</p>
-        <p className="text-xs text-green-600 mt-1">Crafted with ASCII and &lt;3</p>
-      </footer>
+          <section className="max-w-5xl mx-auto mt-16 md:mt-24">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-white">Key Features</h3>
+              <p className="text-gray-500 mt-2">[~-~-~-~-~-~-~-~]</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div className="border border-gray-800 p-6 rounded-lg bg-[#161B22] hover:border-purple-500 transition-colors">
+                <div className="flex justify-center mb-4">
+                  <Zap className="h-10 w-10 text-yellow-400" />
+                </div>
+                <h4 className="text-xl font-semibold text-white">Blazing Fast</h4>
+                <p className="mt-2 text-gray-400">Optimized for low-latency and high-throughput connections.</p>
+              </div>
+              <div className="border border-gray-800 p-6 rounded-lg bg-[#161B22] hover:border-purple-500 transition-colors">
+                <div className="flex justify-center mb-4">
+                  <ShieldCheck className="h-10 w-10 text-green-400" />
+                </div>
+                <h4 className="text-xl font-semibold text-white">Ironclad Security</h4>
+                <p className="mt-2 text-gray-400">End-to-end encryption using the latest cryptographic standards.</p>
+              </div>
+              <div className="border border-gray-800 p-6 rounded-lg bg-[#161B22] hover:border-purple-500 transition-colors">
+                <div className="flex justify-center mb-4">
+                  <Rocket className="h-10 w-10 text-pink-500" />
+                </div>
+                <h4 className="text-xl font-semibold text-white">Radical Interface</h4>
+                <p className="mt-2 text-gray-400">A unique, fully-themed terminal UI that's both powerful and fun.</p>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer className="text-center mt-16 md:mt-24 py-8 border-t border-gray-800">
+          <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights reserved.</p>
+        </footer>
+      </div>
     </div>
   )
 }

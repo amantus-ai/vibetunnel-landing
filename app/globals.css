@@ -3,26 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black text-green-400 font-mono;
-}
-
-/* Custom styles for ASCII-like elements if needed */
-.ascii-border {
-  border: 1px solid theme("colors.green.400"); /* Or currentcolor */
-  padding: theme("spacing.4");
-}
-
-.ascii-button {
-  @apply inline-block border border-green-400 px-6 py-3 text-green-400 hover:bg-green-400 hover:text-black transition-colors duration-150;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.ascii-button::before {
-  content: "[ ";
-}
-.ascii-button::after {
-  content: " ]";
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {

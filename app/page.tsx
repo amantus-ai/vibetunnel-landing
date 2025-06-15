@@ -51,7 +51,7 @@ export default function Home() {
               <Download className="mr-2 h-5 w-5" />
               Download for Mac
             </Button>
-            <p className="text-sm text-gray-500 mt-2">macOS 12.0 or later</p>
+            <p className="text-sm text-gray-500 mt-2">macOS 14 or later</p>
           </section>
 
           <section className="max-w-5xl mx-auto mt-16 md:mt-24">
@@ -89,7 +89,7 @@ export default function Home() {
           <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights reserved.</p>
         </footer>
       </div>
-      <AudioPlayer src="/audio/vibetunnel-80s-theme.mp3" />
+      <AudioPlayer src="/audio/vibetunnel-80s-chiptune-theme.mp3" />
     </div>
   )
 }

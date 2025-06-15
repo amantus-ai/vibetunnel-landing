@@ -8,46 +8,98 @@ export default function AudioPlayer({ src }: { src: string }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [hasInteracted, setHasInteracted] = useState(false)
+  const [audioError, setAudioError] = useState<string | null>(null)
 
   useEffect(() => {
-    const handleInteraction = () => {
-      setHasInteracted(true)
-      window.removeEventListener("click", handleInteraction)
-      window.removeEventListener("keydown", handleInteraction)
+    const audioElement = audioRef.current
+    if (!audioElement) return
+
+    const logError = (event: Event) => {
+      const error = (event.target as HTMLAudioElement).error
+      let errorMessage = "Unknown audio error"
+      if (error) {
+        switch (error.code) {
+          case MediaError.MEDIA_ERR_ABORTED:
+            errorMessage = "Audio playback aborted."
+            break
+          case MediaError.MEDIA_ERR_NETWORK:
+            errorMessage = "A network error caused audio download to fail."
+            break
+          case MediaError.MEDIA_ERR_DECODE:
+            errorMessage = "Audio playback aborted due to a decoding error."
+            break
+          case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
+            errorMessage = "Audio source not supported."
+            break
+          default:
+            errorMessage = `An unknown error occurred (code: ${error.code})`
+        }
+      }
+      console.error("Audio Error:", errorMessage, event)
+      setAudioError(errorMessage)
     }
 
-    window.addEventListener("click", handleInteraction)
-    window.addEventListener("keydown", handleInteraction)
+    audioElement.addEventListener("error", logError)
 
     return () => {
-      window.removeEventListener("click", handleInteraction)
-      window.removeEventListener("keydown", handleInteraction)
+      audioElement.removeEventListener("error", logError)
     }
   }, [])
 
   useEffect(() => {
-    if (hasInteracted && audioRef.current) {
-      audioRef.current
-        .play()
-        .then(() => {
-          setIsPlaying(true)
-        })
-        .catch((error) => {
-          console.warn("Audio autoplay was prevented:", error)
-          // Fallback for browsers that still block even after interaction
-          setIsPlaying(false)
-        })
+    const handleInteraction = () => {
+      if (!hasInteracted) {
+        setHasInteracted(true)
+        // Try to play immediately after first interaction
+        if (audioRef.current && !isPlaying) {
+          audioRef.current
+            .play()
+            .then(() => {
+              setIsPlaying(true)
+              setAudioError(null)
+            })
+            .catch((error) => {
+              console.warn("Audio autoplay after interaction failed:", error)
+              setAudioError("Playback failed. Try manually clicking play.")
+              setIsPlaying(false)
+            })
+        }
+      }
+      // Clean up listeners after first interaction
+      window.removeEventListener("click", handleInteraction)
+      window.removeEventListener("keydown", handleInteraction)
+      window.removeEventListener("touchstart", handleInteraction)
     }
-  }, [hasInteracted])
+
+    window.addEventListener("click", handleInteraction)
+    window.addEventListener("keydown", handleInteraction)
+    window.addEventListener("touchstart", handleInteraction) // For mobile
+
+    return () => {
+      window.removeEventListener("click", handleInteraction)
+      window.removeEventListener("keydown", handleInteraction)
+      window.removeEventListener("touchstart", handleInteraction)
+    }
+  }, [hasInteracted, isPlaying])
 
   const togglePlayPause = () => {
     if (!audioRef.current) return
     if (isPlaying) {
       audioRef.current.pause()
+      setIsPlaying(false)
     } else {
-      audioRef.current.play().catch((error) => console.warn("Error playing audio:", error))
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true)
+          setAudioError(null)
+        })
+        .catch((error) => {
+          console.warn("Error playing audio:", error)
+          setAudioError("Playback failed.")
+          setIsPlaying(false)
+        })
     }
-    setIsPlaying(!isPlaying)
   }
 
   const toggleMute = () => {
@@ -74,7 +126,7 @@ export default function AudioPlayer({ src }: { src: string }) {
         {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
       </button>
       <div className="text-xs text-gray-400 hidden sm:block">
-        <span>80s Vibes</span>
+        {audioError ? <span className="text-red-400">{audioError}</span> : <span>80s Vibes</span>}
       </div>
     </div>
   )

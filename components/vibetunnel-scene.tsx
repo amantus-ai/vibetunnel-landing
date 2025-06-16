@@ -71,8 +71,9 @@ function AnimatedText() {
     textRef.current.position.x += animationState.current.vx * delta
     textRef.current.position.y += animationState.current.vy * delta
 
-    const xBounds = width / 2 - textWidth / 2
-    const yBounds = height / 2 - textHeight / 2
+    const boundsMultiplier = isMobile ? 1.4 : 1.0
+    const xBounds = (width / 2 - textWidth / 2) * boundsMultiplier
+    const yBounds = (height / 2 - textHeight / 2) * boundsMultiplier
 
     if (textRef.current.position.x >= xBounds || textRef.current.position.x <= -xBounds) {
       animationState.current.vx *= -1

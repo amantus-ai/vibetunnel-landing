@@ -1,6 +1,6 @@
 import { VibetunnelScene } from "@/components/vibetunnel-scene"
 import { Button } from "@/components/ui/button"
-import { Download, Zap, ShieldCheck, Rocket } from "lucide-react"
+import { Download, MousePointer, Terminal, Globe, Github } from "lucide-react"
 import Image from "next/image"
 import { Suspense } from "react"
 import AudioPlayer from "@/components/audio-player"
@@ -89,10 +89,21 @@ export default function Home() {
               VibeTunnel proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
               scroll in real-time, type new commands, and spawn fresh sessions on the fly.
             </p>
-            <Button className="mt-8 bg-[#00ff00] hover:bg-[#00dd00] text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
-              <Download className="mr-2 h-5 w-5" />
-              Download for Mac
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+              <Button className="bg-[#00ff00] hover:bg-[#00dd00] text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
+                <Download className="mr-2 h-5 w-5" />
+                Download for Mac
+              </Button>
+              <Button 
+                className="bg-gray-800 hover:bg-gray-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-gray-600"
+                asChild
+              >
+                <a href="https://github.com/amantus-ai/vibetunnel" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-5 w-5" />
+                  See Code on GitHub
+                </a>
+              </Button>
+            </div>
             <p className="text-sm text-gray-500 mt-2">macOS 14.0 or later</p>
           </section>
 
@@ -104,25 +115,28 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div className="border border-gray-800 p-6 rounded-lg bg-[#161B22] hover:border-purple-500 transition-colors">
                 <div className="flex justify-center mb-4">
-                  <Zap className="h-10 w-10 text-yellow-400" />
+                  <MousePointer className="h-10 w-10 text-green-400" />
                 </div>
-                <h4 className="text-xl font-semibold text-white">Blazing Fast</h4>
-                <p className="mt-2 text-gray-400">Optimized for low-latency and high-throughput connections.</p>
+                <h4 className="text-xl font-semibold text-white">Simple</h4>
+                <p className="mt-2 text-gray-400">Just download and get going. No complex configuration needed</p>
               </div>
               <div className="border border-gray-800 p-6 rounded-lg bg-[#161B22] hover:border-purple-500 transition-colors">
                 <div className="flex justify-center mb-4">
-                  <ShieldCheck className="h-10 w-10 text-green-400" />
+                  <Terminal className="h-10 w-10 text-yellow-400" />
                 </div>
-                <h4 className="text-xl font-semibold text-white">Ironclad Security</h4>
-                <p className="mt-2 text-gray-400">End-to-end encryption using the latest cryptographic standards.</p>
+                <h4 className="text-xl font-semibold text-white">Shell integration</h4>
+                <p className="mt-2 text-gray-400">make any command or shell available in your browser</p>
               </div>
               <div className="border border-gray-800 p-6 rounded-lg bg-[#161B22] hover:border-purple-500 transition-colors">
                 <div className="flex justify-center mb-4">
-                  <Rocket className="h-10 w-10 text-pink-500" />
+                  <Globe className="h-10 w-10 text-pink-500" />
                 </div>
-                <h4 className="text-xl font-semibold text-white">Radical Interface</h4>
-                <p className="mt-2 text-gray-400">A unique, fully-themed terminal UI that's both powerful and fun.</p>
+                <h4 className="text-xl font-semibold text-white">Remote</h4>
+                <p className="mt-2 text-gray-400">access it remotely from anywhere with tailscale or ngrok</p>
               </div>
+            </div>
+            <div className="text-center mt-12">
+              <p className="text-lg text-gray-400">Proudly built by humans and agents.</p>
             </div>
           </section>
         </main>

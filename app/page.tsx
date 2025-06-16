@@ -59,7 +59,7 @@ export default function Home() {
             height={40}
             className="w-8 h-8 md:w-10 md:h-10"
           />
-          <h1 className="text-3xl md:text-4xl font-bold text-white"><span className="mobile-text-half">vibetunnel</span></h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white"><span className="mobile-text-half">vibetunnel</span></h1>
         </header>
 
         <main>

@@ -84,10 +84,10 @@ function AnimatedText() {
     }
   })
 
-  const textSize = isMobile ? 1.2675 : 1.95
-  const textHeight = isMobile ? 0.2535 : 0.39
-  const bevelThickness = isMobile ? 0.04225 : 0.065
-  const bevelSize = isMobile ? 0.021125 : 0.0325
+  const textSize = isMobile ? 1.521 : 1.95
+  const textHeight = isMobile ? 0.3042 : 0.39
+  const bevelThickness = isMobile ? 0.0507 : 0.065
+  const bevelSize = isMobile ? 0.02535 : 0.0325
 
   return (
     <group ref={textRef}>

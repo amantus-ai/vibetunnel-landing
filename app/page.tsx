@@ -59,7 +59,7 @@ export default function Home() {
             height={40}
             className="w-8 h-8 md:w-10 md:h-10"
           />
-          <h1 className="text-3xl md:text-4xl font-bold text-white">vibetunnel</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white"><span className="mobile-text-half">vibetunnel</span></h1>
         </header>
 
         <main>
@@ -70,7 +70,7 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <div className="flex-grow text-center text-sm text-gray-400">vibetunnel ~ zsh</div>
+              <div className="flex-grow text-center text-sm text-gray-400"><span className="mobile-text-half">vibetunnel</span> ~ zsh</div>
             </div>
             <div className="w-full h-[400px] md:h-[500px] bg-black">
               <Suspense
@@ -86,7 +86,7 @@ export default function Home() {
           <section className="max-w-4xl mx-auto mt-12 md:mt-20 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white">Turn any browser into your Mac’s terminal.</h2>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-              VibeTunnel proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
+              <span className="mobile-text-half">VibeTunnel</span> proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
               scroll in real-time, type new commands, and spawn fresh sessions on the fly.
             </p>
             <Button className="mt-8 bg-[#00ff00] hover:bg-[#00dd00] text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
@@ -128,6 +128,19 @@ export default function Home() {
         </main>
 
         <footer className="text-center mt-16 md:mt-24 py-8 border-t border-gray-800">
+          <p className="text-gray-400 mb-2">
+            Brought to you by{" "}
+            <a href="https://mariozechner.at/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
+              @badlogic
+            </a>,{" "}
+            <a href="https://lucumr.pocoo.org/" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
+              @mitsuhiko
+            </a>{" "}
+            and{" "}
+            <a href="https://steipete.me" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">
+              @steipete
+            </a>
+          </p>
           <p className="text-gray-500">MIT Licensed · <a href="https://github.com/amantus-ai/vibetunnel" className="text-gray-400 hover:text-white transition-colors">Fork us on GitHub</a></p>
         </footer>
       </div>

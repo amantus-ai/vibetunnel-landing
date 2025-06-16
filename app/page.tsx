@@ -86,7 +86,7 @@ export default function Home() {
           <section className="max-w-4xl mx-auto mt-12 md:mt-20 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white">Turn any browser into your Mac’s terminal.</h2>
             <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-              <span className="mobile-text-half">VibeTunnel</span> proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
+              VibeTunnel proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
               scroll in real-time, type new commands, and spawn fresh sessions on the fly.
             </p>
             <Button className="mt-8 bg-[#00ff00] hover:bg-[#00dd00] text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">

@@ -53,7 +53,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 md:py-16">
         <header className="flex items-center justify-center md:justify-start gap-4 mb-8">
           <Image
-            src="/vibetunnel-icon.png"
+            src="/app-icon.png"
             alt="Vibetunnel Logo"
             width={40}
             height={40}
@@ -89,7 +89,7 @@ export default function Home() {
               VibeTunnel proxies your terminals right into the browser, so you can vibe-code anywhere. Watch output
               scroll in real-time, type new commands, and spawn fresh sessions on the fly.
             </p>
-            <Button className="mt-8 bg-green-500 hover:bg-green-600 text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
+            <Button className="mt-8 bg-[#00ff00] hover:bg-[#00dd00] text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
               <Download className="mr-2 h-5 w-5" />
               Download for Mac
             </Button>
@@ -128,7 +128,7 @@ export default function Home() {
         </main>
 
         <footer className="text-center mt-16 md:mt-24 py-8 border-t border-gray-800">
-          <p className="text-gray-500">&copy; {new Date().getFullYear()} Vibetunnel. All rights. reserved.</p>
+          <p className="text-gray-500">MIT Licensed · <a href="https://github.com/amantus-ai/vibetunnel" className="text-gray-400 hover:text-white transition-colors">Fork us on GitHub</a></p>
         </footer>
       </div>
       <AudioPlayer src="https://steipete.me/game-audio.mp3" />

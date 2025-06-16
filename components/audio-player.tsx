@@ -41,21 +41,10 @@ export default function AudioPlayer({ src }: { src: string }) {
 
     audioElement.addEventListener("error", logError)
 
-    // Attempt to play on mount if interaction has already happened (e.g. page navigation)
-    if (hasInteracted && !isPlaying && audioElement.paused) {
-      // Check if paused
-      audioElement
-        .play()
-        .then(() => setIsPlaying(true))
-        .catch((err) => {
-          console.warn("Autoplay on mount/interaction failed:", err)
-        })
-    }
-
     return () => {
       audioElement.removeEventListener("error", logError)
     }
-  }, [src, hasInteracted, isPlaying]) // isPlaying dependency ensures this effect can re-evaluate if play state changes externally
+  }, [src])
 
   useEffect(() => {
     const handleInteraction = () => {
@@ -94,7 +83,7 @@ export default function AudioPlayer({ src }: { src: string }) {
       window.removeEventListener("keydown", handleInteraction, { capture: true })
       window.removeEventListener("touchstart", handleInteraction, { capture: true })
     }
-  }, [hasInteracted, isPlaying]) // isPlaying dependency ensures this effect can re-evaluate
+  }, [hasInteracted])
 
   const togglePlayPause = () => {
     if (!audioRef.current) return

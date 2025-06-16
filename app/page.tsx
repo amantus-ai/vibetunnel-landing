@@ -90,12 +90,12 @@ export default function Home() {
               scroll in real-time, type new commands, and spawn fresh sessions on the fly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              <Button className="bg-[#00ff00] hover:bg-[#00dd00] text-black font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105">
+              <Button className="bg-[#00cc00] hover:bg-[#00aa00] text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 w-full sm:w-64">
                 <Download className="mr-2 h-5 w-5" />
                 Download for Mac
               </Button>
               <Button 
-                className="bg-gray-800 hover:bg-gray-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-gray-600"
+                className="bg-gray-800 hover:bg-gray-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-gray-600 w-full sm:w-64"
                 asChild
               >
                 <a href="https://github.com/amantus-ai/vibetunnel" target="_blank" rel="noopener noreferrer">

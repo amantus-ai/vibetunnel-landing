@@ -3,7 +3,7 @@
 import * as THREE from "three"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { AsciiRenderer, Text3D, Center, useTexture } from "@react-three/drei"
-import { useRef, useMemo, Suspense } from "react"
+import { useRef, useMemo, Suspense, useEffect, useState } from "react"
 
 function Tunnel() {
   const mesh = useRef<THREE.Mesh>(null!)
@@ -44,6 +44,16 @@ function AnimatedText() {
   const textRef = useRef<THREE.Group>(null!)
   const matcap = useTexture("/textures/matcap_metallic_grey.png")
   const { viewport } = useThree()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 640)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const animationState = useRef({
     vx: (Math.random() > 0.5 ? 1 : -1) * 1.5,
@@ -74,17 +84,22 @@ function AnimatedText() {
     }
   })
 
+  const textSize = isMobile ? 0.975 : 1.95
+  const textHeight = isMobile ? 0.195 : 0.39
+  const bevelThickness = isMobile ? 0.0325 : 0.065
+  const bevelSize = isMobile ? 0.01625 : 0.0325
+
   return (
     <group ref={textRef}>
       <Center>
         <Text3D
           font="/fonts/GeistMono_Bold.json"
-          size={1.95}
-          height={0.39}
+          size={textSize}
+          height={textHeight}
           curveSegments={10}
           bevelEnabled
-          bevelThickness={0.065}
-          bevelSize={0.0325}
+          bevelThickness={bevelThickness}
+          bevelSize={bevelSize}
           bevelOffset={0}
           bevelSegments={4}
         >

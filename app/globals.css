@@ -97,9 +97,9 @@ body {
 @media (max-width: 640px) {
   .mobile-text-half {
     display: inline-block;
-    transform: scale(0.25);
+    transform: scale(0.5);
     transform-origin: center;
-    margin: 0 -0.375em; /* Compensate for the space taken by scaled text */
+    margin: 0 -0.25em; /* Compensate for the space taken by scaled text */
     vertical-align: baseline;
   }
 }

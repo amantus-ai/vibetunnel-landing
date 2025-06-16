@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Vibetunnel",
     images: [
       {
-        url: "https://vibetunnel.sh/vibetunnel-icon.png",
+        url: "https://vibetunnel.sh/app-icon.png",
         width: 512,
         height: 512,
         alt: "Vibetunnel Logo",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
     description:
       "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
-    images: ["https://vibetunnel.sh/vibetunnel-icon.png"],
+    images: ["https://vibetunnel.sh/app-icon.png"],
   },
 }
 

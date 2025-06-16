@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "Vibetunnel",
     images: [
       {
-        url: "https://vibetunnel.sh/vibetunnel-appicon.png",
+        url: "https://vibetunnel.sh/appicon-512.png",
         width: 512,
         height: 512,
         alt: "Vibetunnel Logo",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro",
     description:
       "Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.",
-    images: ["https://vibetunnel.sh/vibetunnel-appicon.png"],
+    images: ["https://vibetunnel.sh/appicon-512.png"],
   },
 }
 
@@ -53,7 +53,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 md:py-16">
         <header className="flex items-center justify-center md:justify-start gap-4 mb-8">
           <Image
-            src="/vibetunnel-appicon.png"
+            src="/appicon-512.png"
             alt="Vibetunnel Logo"
             width={100}
             height={100}

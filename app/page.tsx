@@ -55,9 +55,9 @@ export default function Home() {
           <Image
             src="/app-icon.png"
             alt="Vibetunnel Logo"
-            width={40}
-            height={40}
-            className="w-8 h-8 md:w-10 md:h-10"
+            width={100}
+            height={100}
+            className="w-20 h-20 md:w-25 md:h-25"
           />
           <h1 className="text-5xl md:text-6xl font-bold text-white"><span className="mobile-text-half">vibetunnel</span></h1>
         </header>

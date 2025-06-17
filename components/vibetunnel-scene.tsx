@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import * as THREE from "three"
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import { AsciiRenderer, Text3D, Center, useTexture } from "@react-three/drei"
-import { useRef, useMemo, Suspense, useEffect, useState } from "react"
+import * as THREE from 'three'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { AsciiRenderer, Text3D, Center, useTexture } from '@react-three/drei'
+import { useRef, useMemo, Suspense, useEffect, useState } from 'react'
 
 function Tunnel() {
   const mesh = useRef<THREE.Mesh>(null!)
@@ -12,7 +12,7 @@ function Tunnel() {
     return new THREE.CatmullRomCurve3(
       [new THREE.Vector3(0, 0, 10), new THREE.Vector3(0, 0, -100)],
       false,
-      "catmullrom",
+      'catmullrom',
       0.5,
     )
   }, [])
@@ -34,15 +34,23 @@ function Tunnel() {
 
 function Rig() {
   useFrame((state) => {
-    state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, 0.5 + state.mouse.x / 8, 0.075)
-    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, 1 + state.mouse.y / 8, 0.075)
+    state.camera.position.x = THREE.MathUtils.lerp(
+      state.camera.position.x,
+      0.5 + state.mouse.x / 8,
+      0.075,
+    )
+    state.camera.position.y = THREE.MathUtils.lerp(
+      state.camera.position.y,
+      1 + state.mouse.y / 8,
+      0.075,
+    )
   })
   return null
 }
 
 function AnimatedText() {
   const textRef = useRef<THREE.Group>(null!)
-  const matcap = useTexture("/textures/matcap_metallic_grey.png")
+  const matcap = useTexture('/textures/matcap_metallic_grey.png')
   const { viewport } = useThree()
   const [isMobile, setIsMobile] = useState(false)
 
@@ -75,13 +83,27 @@ function AnimatedText() {
     const xBounds = (width / 2 - textWidth / 2) * boundsMultiplier
     const yBounds = (height / 2 - textHeight / 2) * boundsMultiplier
 
-    if (textRef.current.position.x >= xBounds || textRef.current.position.x <= -xBounds) {
+    if (
+      textRef.current.position.x >= xBounds ||
+      textRef.current.position.x <= -xBounds
+    ) {
       animationState.current.vx *= -1
-      textRef.current.position.x = THREE.MathUtils.clamp(textRef.current.position.x, -xBounds, xBounds)
+      textRef.current.position.x = THREE.MathUtils.clamp(
+        textRef.current.position.x,
+        -xBounds,
+        xBounds,
+      )
     }
-    if (textRef.current.position.y >= yBounds || textRef.current.position.y <= -yBounds) {
+    if (
+      textRef.current.position.y >= yBounds ||
+      textRef.current.position.y <= -yBounds
+    ) {
       animationState.current.vy *= -1
-      textRef.current.position.y = THREE.MathUtils.clamp(textRef.current.position.y, -yBounds, yBounds)
+      textRef.current.position.y = THREE.MathUtils.clamp(
+        textRef.current.position.y,
+        -yBounds,
+        yBounds,
+      )
     }
   })
 
@@ -115,13 +137,19 @@ function AnimatedText() {
 function SceneContent() {
   return (
     <>
-      <color attach="background" args={["black"]} />
+      <color attach="background" args={['black']} />
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <AnimatedText />
       <Tunnel />
       <Rig />
-      <AsciiRenderer fgColor="#39FF14" bgColor="transparent" resolution={0.2} characters=" .:-+*=%@#" invert />
+      <AsciiRenderer
+        fgColor="#39FF14"
+        bgColor="transparent"
+        resolution={0.2}
+        characters=" .:-+*=%@#"
+        invert
+      />
     </>
   )
 }

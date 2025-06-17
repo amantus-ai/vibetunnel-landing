@@ -1,0 +1,9 @@
+.next
+out
+node_modules
+.cache
+public
+coverage
+.turbo
+*.min.js
+*.min.css

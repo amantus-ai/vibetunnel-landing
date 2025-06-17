@@ -31,6 +31,7 @@ npm run preserve-assets
 ## Architecture
 
 ### Tech Stack
+
 - **Framework**: Next.js 15.2.4 with App Router
 - **UI**: React 19, TypeScript, Tailwind CSS
 - **3D Graphics**: Three.js + React Three Fiber + Drei
@@ -39,12 +40,14 @@ npm run preserve-assets
 
 ### Key Components
 
-1. **3D Scene** (`components/vibetunnel-scene.tsx`): 
+1. **3D Scene** (`components/vibetunnel-scene.tsx`):
+
    - Interactive Three.js scene with ASCII renderer
    - Responsive text sizing based on viewport
    - Animation state management with useFrame
 
 2. **Audio Player** (`components/audio-player.tsx`):
+
    - Background music player
    - Currently loads from external URL: https://steipete.me/game-audio.mp3
 
@@ -97,13 +100,17 @@ We always want to use the latest dependencies. Do not downgrade any dependencies
 ## Common Tasks
 
 ### Modifying 3D Scene
+
 Edit `components/vibetunnel-scene.tsx`. Key parameters:
+
 - Text size: `size`, `height` props on Text3D
 - Animation speed: `vx`, `vy` in animationState
 - ASCII renderer: `resolution`, `characters` props
 
 ### Updating Responsive Text
+
 The `.mobile-text-half` class in `app/globals.css` controls mobile text scaling. Currently set to `scale(0.5)`.
 
 ### Changing Audio
+
 Update the `src` prop in `<AudioPlayer>` component in `app/page.tsx`.

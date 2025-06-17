@@ -1,7 +1,7 @@
-"use client"
+'use client'
 
-import { useEffect, useRef, useState } from "react"
-import { Play, Pause, Volume2, VolumeX } from "lucide-react"
+import { useEffect, useRef, useState } from 'react'
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react'
 
 export default function AudioPlayer({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement>(null)
@@ -16,33 +16,33 @@ export default function AudioPlayer({ src }: { src: string }) {
 
     const logError = (event: Event) => {
       const error = (event.target as HTMLAudioElement).error
-      let errorMessage = "Unknown audio error"
+      let errorMessage = 'Unknown audio error'
       if (error) {
         switch (error.code) {
           case MediaError.MEDIA_ERR_ABORTED:
-            errorMessage = "Audio playback aborted."
+            errorMessage = 'Audio playback aborted.'
             break
           case MediaError.MEDIA_ERR_NETWORK:
-            errorMessage = "A network error caused audio download to fail."
+            errorMessage = 'A network error caused audio download to fail.'
             break
           case MediaError.MEDIA_ERR_DECODE:
-            errorMessage = "Audio playback aborted due to a decoding error."
+            errorMessage = 'Audio playback aborted due to a decoding error.'
             break
           case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
-            errorMessage = "Audio source not supported."
+            errorMessage = 'Audio source not supported.'
             break
           default:
             errorMessage = `An unknown error occurred (code: ${error.code})`
         }
       }
-      console.error("Audio Error:", errorMessage, event)
+      console.error('Audio Error:', errorMessage, event)
       setAudioError(errorMessage)
     }
 
-    audioElement.addEventListener("error", logError)
+    audioElement.addEventListener('error', logError)
 
     return () => {
-      audioElement.removeEventListener("error", logError)
+      audioElement.removeEventListener('error', logError)
     }
   }, [src])
 
@@ -59,31 +59,41 @@ export default function AudioPlayer({ src }: { src: string }) {
               setAudioError(null)
             })
             .catch((error) => {
-              console.warn("Audio autoplay after interaction failed:", error)
+              console.warn('Audio autoplay after interaction failed:', error)
               setIsPlaying(false)
             })
         }
       }
       // Clean up listeners after first interaction
-      window.removeEventListener("click", handleInteraction, { capture: true })
-      window.removeEventListener("keydown", handleInteraction, { capture: true })
-      window.removeEventListener("touchstart", handleInteraction, { capture: true })
+      window.removeEventListener('click', handleInteraction, { capture: true })
+      window.removeEventListener('keydown', handleInteraction, {
+        capture: true,
+      })
+      window.removeEventListener('touchstart', handleInteraction, {
+        capture: true,
+      })
     }
 
     // Add listeners with capture to ensure they fire early
     // Only add these listeners if we haven't interacted yet
     if (!hasInteracted) {
-      window.addEventListener("click", handleInteraction, { capture: true })
-      window.addEventListener("keydown", handleInteraction, { capture: true })
-      window.addEventListener("touchstart", handleInteraction, { capture: true })
+      window.addEventListener('click', handleInteraction, { capture: true })
+      window.addEventListener('keydown', handleInteraction, { capture: true })
+      window.addEventListener('touchstart', handleInteraction, {
+        capture: true,
+      })
     }
 
     return () => {
-      window.removeEventListener("click", handleInteraction, { capture: true })
-      window.removeEventListener("keydown", handleInteraction, { capture: true })
-      window.removeEventListener("touchstart", handleInteraction, { capture: true })
+      window.removeEventListener('click', handleInteraction, { capture: true })
+      window.removeEventListener('keydown', handleInteraction, {
+        capture: true,
+      })
+      window.removeEventListener('touchstart', handleInteraction, {
+        capture: true,
+      })
     }
-  }, [hasInteracted])
+  }, [hasInteracted, isPlaying])
 
   const togglePlayPause = () => {
     if (!audioRef.current) return
@@ -100,8 +110,8 @@ export default function AudioPlayer({ src }: { src: string }) {
           setAudioError(null)
         })
         .catch((error) => {
-          console.warn("Error playing audio:", error)
-          setAudioError("Playback failed.")
+          console.warn('Error playing audio:', error)
+          setAudioError('Playback failed.')
           setIsPlaying(false)
         })
     }
@@ -119,19 +129,23 @@ export default function AudioPlayer({ src }: { src: string }) {
       <button
         onClick={togglePlayPause}
         className="text-green-400 hover:text-green-300 transition-colors"
-        aria-label={isPlaying ? "Pause music" : "Play music"}
+        aria-label={isPlaying ? 'Pause music' : 'Play music'}
       >
         {isPlaying ? <Pause size={20} /> : <Play size={20} />}
       </button>
       <button
         onClick={toggleMute}
         className="text-green-400 hover:text-green-300 transition-colors"
-        aria-label={isMuted ? "Unmute music" : "Mute music"}
+        aria-label={isMuted ? 'Unmute music' : 'Mute music'}
       >
         {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
       </button>
       <div className="text-xs text-gray-400 hidden sm:block">
-        {audioError ? <span className="text-red-400">{audioError}</span> : <span>80s Vibes</span>}
+        {audioError ? (
+          <span className="text-red-400">{audioError}</span>
+        ) : (
+          <span>80s Vibes</span>
+        )}
       </div>
     </div>
   )

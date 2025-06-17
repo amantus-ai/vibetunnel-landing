@@ -9,19 +9,19 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
   description:
-    'Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.',
+    'Turn any browser into your terminal & command your agents on the go.',
   openGraph: {
     title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
     description:
-      'Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.',
+      'Turn any browser into your terminal & command your agents on the go.',
     url: 'https://vibetunnel.sh',
     siteName: 'Vibetunnel',
     images: [
       {
-        url: 'https://vibetunnel.sh/appicon-512.png',
-        width: 512,
-        height: 512,
-        alt: 'Vibetunnel Logo',
+        url: 'https://vibetunnel.sh/assets/banner.png',
+        width: 1200,
+        height: 630,
+        alt: 'Vibetunnel - Turn any browser into your terminal',
       },
     ],
     locale: 'en_US',
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
     description:
-      'Experience Vibetunnel – the macOS app that securely proxies your terminal to any browser. Enjoy real-time output, command execution, and a unique 80s retro ASCII interface.',
-    images: ['https://vibetunnel.sh/appicon-512.png'],
+      'Turn any browser into your terminal & command your agents on the go.',
+    images: ['https://vibetunnel.sh/assets/banner.png'],
   },
 }
 

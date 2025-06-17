@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Turn any browser into your terminal & command your agents on the go.',
   openGraph: {
-    title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
+    title: 'Vibetunnel: Your Mac Terminal in Any Browser',
     description:
       'Turn any browser into your terminal & command your agents on the go.',
     url: 'https://vibetunnel.sh',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vibetunnel: Your Mac Terminal in Any Browser | Secure & Retro',
+    title: 'Vibetunnel: Your Mac Terminal in Any Browser',
     description:
       'Turn any browser into your terminal & command your agents on the go.',
     images: ['https://vibetunnel.sh/assets/banner.png'],

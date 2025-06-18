@@ -60,7 +60,7 @@ export default function Home() {
             className="w-20 h-20 md:w-25 md:h-25"
           />
           <h1 className="text-5xl md:text-6xl font-bold text-white">
-            <span className="mobile-text-half">vibetunnel</span>
+            vibetunnel
           </h1>
         </header>
 
@@ -73,7 +73,7 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
               <div className="flex-grow text-center text-sm text-gray-400">
-                <span className="mobile-text-half">vibetunnel</span> ~ zsh
+                vibetunnel ~ zsh
               </div>
             </div>
             <div className="w-full h-[400px] md:h-[500px] bg-black">

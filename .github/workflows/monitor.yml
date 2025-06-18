@@ -43,18 +43,12 @@ jobs:
           npm audit || true
         fi
     
-    - name: Create issue for critical updates
-      if: failure()
-      uses: actions/create-issue@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        title: "Build Monitor: Dependencies need attention"
-        body: |
-          The automated build monitor has detected issues that need attention:
-          
-          - Check workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          - Some dependencies may be outdated or have security vulnerabilities
-          
-          Please review and update as necessary.
-        labels: dependencies, automated
+    - name: Summary
+      run: |
+        echo "## Dependency Health Check Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Dependency check completed at $(date -u)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Check the logs above for:"  >> $GITHUB_STEP_SUMMARY
+        echo "- Outdated dependencies" >> $GITHUB_STEP_SUMMARY
+        echo "- Security vulnerabilities" >> $GITHUB_STEP_SUMMARY

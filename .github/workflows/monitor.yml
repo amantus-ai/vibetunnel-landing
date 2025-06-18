@@ -23,17 +23,25 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 22
-        cache: 'pnpm'
+        cache: 'npm'
     
     - name: Check for outdated dependencies
       run: |
         echo "Checking for outdated dependencies..."
-        pnpm outdated || true
+        if [ -f pnpm-lock.yaml ]; then
+          pnpm outdated || true
+        else
+          npm outdated || true
+        fi
     
     - name: Security audit
       run: |
         echo "Running security audit..."
-        pnpm audit || true
+        if [ -f pnpm-lock.yaml ]; then
+          pnpm audit || true
+        else
+          npm audit || true
+        fi
     
     - name: Create issue for critical updates
       if: failure()

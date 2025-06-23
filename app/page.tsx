@@ -4,6 +4,7 @@ import { Download, MousePointer, Terminal, Globe, Github } from 'lucide-react'
 import Image from 'next/image'
 import { Suspense } from 'react'
 import AudioPlayer from '@/components/audio-player'
+import { PolarDonation } from '@/components/polar-donation'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -181,6 +182,8 @@ export default function Home() {
               </p>
             </div>
           </section>
+
+          <PolarDonation />
         </main>
 
         <footer className="text-center mt-16 md:mt-24 py-8 border-t border-gray-800">

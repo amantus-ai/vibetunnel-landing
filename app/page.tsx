@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Suspense } from 'react'
 import AudioPlayer from '@/components/audio-player'
 import { PolarDonation } from '@/components/polar-donation'
+import { NewsletterSignup } from '@/components/newsletter-signup'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -183,6 +184,8 @@ export default function Home() {
             </div>
           </section>
 
+          <NewsletterSignup />
+          
           <PolarDonation />
         </main>
 

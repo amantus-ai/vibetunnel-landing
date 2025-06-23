@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: email,
+          email_address: email,  // Buttondown expects email_address, not email
           tags: ['landing'],
           metadata: {
             source: 'vibetunnel-landing'

@@ -44,7 +44,7 @@ export function NewsletterSignup() {
 
   return (
     <div id="newsletter" className="mt-16 md:mt-24 max-w-xl mx-auto scroll-mt-20">
-      <Card className="bg-[#161B22] border-gray-800">
+      <Card className="bg-[#161B22] border-gray-800 hover:border-purple-500 transition-colors">
         <CardHeader className="text-center">
           <div className="mx-auto mb-4">
             <Mail className="h-12 w-12 text-green-400" />

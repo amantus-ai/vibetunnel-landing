@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         email: email,
-        // Buttondown v1 API doesn't use referrer_url, it uses metadata
+        tags: ['landing'],
         metadata: {
           source: 'vibetunnel-landing'
         }

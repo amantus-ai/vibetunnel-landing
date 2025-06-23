@@ -3,6 +3,7 @@
 import { Heart } from 'lucide-react'
 import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import Script from 'next/script'
 
 export function PolarDonation() {
@@ -28,15 +29,20 @@ export function PolarDonation() {
         }}
       />
       
-      <div className="mt-16 md:mt-24 max-w-2xl mx-auto">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white mb-2">Support VibeTunnel</h3>
-          <p className="text-gray-400">Help us keep the terminal vibes flowing</p>
-        </div>
-        <div className="border border-gray-800 rounded-lg bg-[#161B22] p-8 hover:border-purple-500 transition-colors">
-          <div className="flex flex-col items-center space-y-6">
-            <Heart className="h-12 w-12 text-purple-400" />
-            <p className="text-gray-300 text-center max-w-md">
+      <div className="mt-16 md:mt-24 max-w-xl mx-auto">
+        <Card className="bg-[#161B22] border-gray-800 hover:border-purple-500 transition-colors">
+          <CardHeader className="text-center">
+            <div className="mx-auto mb-4">
+              <Heart className="h-12 w-12 text-purple-400" />
+            </div>
+            <CardTitle className="text-2xl text-white">Support VibeTunnel</CardTitle>
+            <CardDescription className="text-gray-400">
+              Help us keep the terminal vibes flowing
+            </CardDescription>
+          </CardHeader>
+          
+          <CardContent className="text-center">
+            <p className="text-gray-300 mb-6">
               Support the team so we can buy pizza and drinks while we keep hacking on your favorite AI agent orchestration platform.
             </p>
             
@@ -51,12 +57,14 @@ export function PolarDonation() {
                 Support on Polar
               </Button>
             </a>
-            
+          </CardContent>
+          
+          <CardFooter className="text-center justify-center">
             <p className="text-sm text-gray-500">
               Pay what you want - one-time or monthly
             </p>
-          </div>
-        </div>
+          </CardFooter>
+        </Card>
       </div>
     </>
   )

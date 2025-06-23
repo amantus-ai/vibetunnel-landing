@@ -10,7 +10,7 @@ export function PolarDonation() {
   const checkoutLink = `https://buy.polar.sh/polar_cl_bymSeiaNkztw9bRHCqHZe7nUxKNbO8XbJIxBX1ZBUi7`
   
   return (
-    <div className="mt-16 md:mt-24 max-w-xl mx-auto">
+    <div id="support" className="mt-16 md:mt-24 max-w-xl mx-auto scroll-mt-20">
       <Card className="bg-[#161B22] border-gray-800 hover:border-purple-500 transition-colors">
         <CardHeader className="text-center">
           <div className="mx-auto mb-4">
@@ -30,7 +30,7 @@ export function PolarDonation() {
           <Link href={checkoutLink}>
             <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg px-12 py-6 rounded-md transition-transform hover:scale-105 min-w-[280px]">
               <Heart className="mr-2 h-5 w-5" />
-              Support on Polar
+              Support us on Polar
             </Button>
           </Link>
         </CardContent>

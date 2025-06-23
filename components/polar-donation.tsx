@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button'
 
 export function PolarDonation() {
   const productId = process.env.NEXT_PUBLIC_POLAR_PRODUCT_ID || "3ef4b0ac-fbb5-47b6-ad0e-f2dd0bc46957"
-  const checkoutUrl = `/api/polar/checkout?products=${productId}`
+  // Direct link to Polar checkout page - no API needed
+  const checkoutUrl = `https://polar.sh/vibetunnel/products/${productId}`
   
   return (
     <div className="mt-16 md:mt-24 max-w-2xl mx-auto">

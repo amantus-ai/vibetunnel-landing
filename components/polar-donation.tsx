@@ -5,8 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 export function PolarDonation() {
-  // Using the product ID from your screenshot
-  const productId = "3ef4b0ac-fbb5-47b6-ad0e-f2dd0bc46957"
+  const productId = process.env.NEXT_PUBLIC_POLAR_PRODUCT_ID || "3ef4b0ac-fbb5-47b6-ad0e-f2dd0bc46957"
   const checkoutUrl = `/api/polar/checkout?products=${productId}`
   
   return (

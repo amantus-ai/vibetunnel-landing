@@ -22,12 +22,12 @@ export function PolarDonation() {
             Support the team so we can buy pizza and drinks while we keep hacking on your favorite AI agent orchestration platform.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl justify-center">
             <Link 
               href={checkoutUrl}
-              className="flex-1"
+              className="w-full sm:w-auto"
             >
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-6 py-6 rounded-md transition-transform hover:scale-105 w-full">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 w-full sm:w-auto min-w-[240px]">
                 <Coffee className="mr-2 h-5 w-5" />
                 One-time Support
               </Button>
@@ -35,9 +35,9 @@ export function PolarDonation() {
             
             <Link 
               href={checkoutUrl}
-              className="flex-1"
+              className="w-full sm:w-auto"
             >
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg px-6 py-6 rounded-md transition-transform hover:scale-105 w-full">
+              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 w-full sm:w-auto min-w-[240px]">
                 <Calendar className="mr-2 h-5 w-5" />
                 Monthly Support
               </Button>

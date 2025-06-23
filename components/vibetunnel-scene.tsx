@@ -134,6 +134,36 @@ function AnimatedText() {
   )
 }
 
+function SafeAsciiRenderer() {
+  const [renderAscii, setRenderAscii] = useState(false)
+  
+  useEffect(() => {
+    // Delay ASCII renderer initialization to ensure canvas is ready
+    const timer = setTimeout(() => {
+      setRenderAscii(true)
+    }, 100)
+    
+    return () => clearTimeout(timer)
+  }, [])
+  
+  if (!renderAscii) return null
+  
+  try {
+    return (
+      <AsciiRenderer
+        fgColor="#39FF14"
+        bgColor="transparent"
+        resolution={0.2}
+        characters=" .:-+*=%@#"
+        invert
+      />
+    )
+  } catch (error) {
+    console.error('AsciiRenderer error:', error)
+    return null
+  }
+}
+
 function SceneContent() {
   return (
     <>
@@ -143,13 +173,7 @@ function SceneContent() {
       <AnimatedText />
       <Tunnel />
       <Rig />
-      <AsciiRenderer
-        fgColor="#39FF14"
-        bgColor="transparent"
-        resolution={0.2}
-        characters=" .:-+*=%@#"
-        invert
-      />
+      <SafeAsciiRenderer />
     </>
   )
 }

@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import AudioPlayer from '@/components/audio-player'
 import { PolarDonation } from '@/components/polar-donation'
 import { NewsletterSignup } from '@/components/newsletter-signup'
+import { ErrorBoundary } from '@/components/error-boundary'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -79,15 +80,17 @@ export default function Home() {
               </div>
             </div>
             <div className="w-full h-[400px] md:h-[500px] bg-black">
-              <Suspense
-                fallback={
-                  <div className="flex items-center justify-center h-full text-gray-500">
-                    Loading 3D Scene...
-                  </div>
-                }
-              >
-                <VibetunnelScene />
-              </Suspense>
+              <ErrorBoundary>
+                <Suspense
+                  fallback={
+                    <div className="flex items-center justify-center h-full text-gray-500">
+                      Loading 3D Scene...
+                    </div>
+                  }
+                >
+                  <VibetunnelScene />
+                </Suspense>
+              </ErrorBoundary>
             </div>
           </div>
 

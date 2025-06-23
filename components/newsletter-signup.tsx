@@ -49,7 +49,7 @@ export function NewsletterSignup() {
           <div className="mx-auto mb-4">
             <Mail className="h-12 w-12 text-green-400" />
           </div>
-          <CardTitle className="text-2xl text-white">Stay in the Loop</CardTitle>
+          <CardTitle className="text-2xl text-white">Terminal vibes delivered</CardTitle>
           <CardDescription className="text-gray-400">
             Get updates on new features and terminal tips
           </CardDescription>
@@ -85,7 +85,7 @@ export function NewsletterSignup() {
           )}
           
           <p className="text-xs text-gray-500 text-center mt-4">
-            No spam, unsubscribe anytime. Powered by Buttondown.
+            No spam, unsubscribe anytime
           </p>
         </CardContent>
       </Card>

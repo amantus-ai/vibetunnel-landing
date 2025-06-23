@@ -19,6 +19,10 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+    
+    // Log API key info for debugging (without exposing the key)
+    console.log('API key length:', process.env.BUTTONDOWN_API_KEY.length)
+    console.log('API key starts with:', process.env.BUTTONDOWN_API_KEY.substring(0, 10) + '...')
 
     // Subscribe to Buttondown
     const response = await fetch('https://api.buttondown.email/v1/subscribers', {
@@ -36,14 +40,26 @@ export async function POST(request: NextRequest) {
     if (response.ok) {
       return NextResponse.json({ success: true })
     } else {
-      const errorData = await response.json()
-      console.error('Buttondown error:', errorData)
+      let errorData
+      try {
+        errorData = await response.json()
+      } catch (e) {
+        errorData = await response.text()
+      }
+      console.error('Buttondown error:', response.status, errorData)
       
       // Handle common errors
       if (response.status === 409) {
         return NextResponse.json(
           { error: 'This email is already subscribed!' },
           { status: 409 }
+        )
+      }
+      
+      if (response.status === 401) {
+        return NextResponse.json(
+          { error: 'Newsletter service configuration error' },
+          { status: 500 }
         )
       }
       

@@ -1,9 +1,12 @@
 'use client'
 
 import { Heart } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 
 export function PolarDonation() {
+  const productId = process.env.NEXT_PUBLIC_POLAR_PRODUCT_ID || ""
+  const checkoutUrl = `/api/polar/checkout?products=${productId}`
+  
   return (
     <div className="mt-16 md:mt-24 max-w-xl mx-auto">
       <div className="text-center mb-8">
@@ -16,19 +19,13 @@ export function PolarDonation() {
           <p className="text-gray-300 text-center">
             If you love VibeTunnel and want to support its development, consider buying us a coffee!
           </p>
-          <Button
-            className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 w-full sm:w-auto"
-            asChild
+          <Link
+            href={checkoutUrl}
+            className="bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 w-full sm:w-auto inline-flex items-center justify-center"
           >
-            <a
-              href="https://polar.sh/vibetunnel"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Heart className="mr-2 h-5 w-5" />
-              Support on Polar
-            </a>
-          </Button>
+            <Heart className="mr-2 h-5 w-5" />
+            Support on Polar
+          </Link>
           <p className="text-sm text-gray-500">
             One-time or recurring donations
           </p>

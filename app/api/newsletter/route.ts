@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'edge' // Use edge runtime for better performance
+
 export async function POST(request: NextRequest) {
   try {
+    // Clone the request to avoid body already read issues
+    const clonedRequest = request.clone()
+    
     let body;
     try {
-      body = await request.json()
+      body = await clonedRequest.json()
     } catch (e) {
+      console.error('Failed to parse request body:', e)
       return NextResponse.json(
         { error: 'Invalid request body' },
         { status: 400 }
@@ -37,20 +43,29 @@ export async function POST(request: NextRequest) {
     // Subscribe to Buttondown
     console.log('Attempting to subscribe email:', email)
     
-    const response = await fetch('https://api.buttondown.email/v1/subscribers', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Token ${process.env.BUTTONDOWN_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-        tags: ['landing'],
-        metadata: {
-          source: 'vibetunnel-landing'
-        }
-      }),
-    })
+    let response;
+    try {
+      response = await fetch('https://api.buttondown.email/v1/subscribers', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Token ${process.env.BUTTONDOWN_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          tags: ['landing'],
+          metadata: {
+            source: 'vibetunnel-landing'
+          }
+        }),
+      })
+    } catch (fetchError) {
+      console.error('Failed to reach Buttondown API:', fetchError)
+      return NextResponse.json(
+        { error: 'Failed to connect to newsletter service' },
+        { status: 500 }
+      )
+    }
 
     if (response.ok) {
       return NextResponse.json({ success: true })

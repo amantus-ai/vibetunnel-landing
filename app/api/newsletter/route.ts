@@ -25,6 +25,8 @@ export async function POST(request: NextRequest) {
     console.log('API key starts with:', process.env.BUTTONDOWN_API_KEY.substring(0, 10) + '...')
 
     // Subscribe to Buttondown
+    console.log('Attempting to subscribe email:', email)
+    
     const response = await fetch('https://api.buttondown.email/v1/subscribers', {
       method: 'POST',
       headers: {
@@ -32,8 +34,11 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email,
-        referrer_url: request.headers.get('referer') || 'https://vibetunnel.sh',
+        email: email,
+        // Buttondown v1 API doesn't use referrer_url, it uses metadata
+        metadata: {
+          source: 'vibetunnel-landing'
+        }
       }),
     })
 

@@ -18,7 +18,6 @@ export function PolarDonation() {
         <div className="flex flex-col items-center space-y-6">
           <Heart className="h-12 w-12 text-purple-400" />
           <p className="text-gray-300 text-center max-w-md">
-            Turn any browser into your terminal & command your agents on the go.
             Support the team so we can buy pizza and drinks while we keep hacking on your favorite AI agent orchestration platform.
           </p>
           

@@ -1,6 +1,6 @@
 import { VibetunnelScene } from '@/components/vibetunnel-scene'
 import { Button } from '@/components/ui/button'
-import { MousePointer, Terminal, Globe, Github } from 'lucide-react'
+import { MousePointer, Terminal, Globe, Github, Package } from 'lucide-react'
 import Image from 'next/image'
 import { Suspense } from 'react'
 import AudioPlayer from '@/components/audio-player'
@@ -104,7 +104,7 @@ export default function Home() {
               can vibe-code anywhere. Watch output scroll in real-time, type new
               commands, and spawn fresh sessions on the fly.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+            <div className="flex flex-col lg:flex-row gap-4 justify-center items-center mt-8 flex-wrap">
               <DownloadButton />
               <Button
                 className="bg-gray-800 hover:bg-gray-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-gray-600 w-full sm:w-64"
@@ -117,6 +117,19 @@ export default function Home() {
                 >
                   <Github className="mr-2 h-5 w-5" />
                   See Code on GitHub
+                </a>
+              </Button>
+              <Button
+                className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-orange-500 w-full sm:w-64"
+                asChild
+              >
+                <a
+                  href="https://www.npmjs.com/package/vibetunnel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Package className="mr-2 h-5 w-5" />
+                  Get npm for Linux
                 </a>
               </Button>
             </div>

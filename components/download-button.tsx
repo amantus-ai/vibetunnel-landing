@@ -23,7 +23,7 @@ export function DownloadButton() {
       asChild
     >
       <a
-        href="https://github.com/amantus-ai/vibetunnel/releases"
+        href="https://stats.store/download/vibetunnel"
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleDownloadClick}

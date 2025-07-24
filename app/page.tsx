@@ -107,19 +107,6 @@ export default function Home() {
             <div className="flex flex-col lg:flex-row gap-4 justify-center items-center mt-8 flex-wrap">
               <DownloadButton />
               <Button
-                className="bg-gray-800 hover:bg-gray-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-gray-600 w-full sm:w-64"
-                asChild
-              >
-                <a
-                  href="https://github.com/amantus-ai/vibetunnel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="mr-2 h-5 w-5" />
-                  See Code on GitHub
-                </a>
-              </Button>
-              <Button
                 className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-orange-500 w-full sm:w-64"
                 asChild
               >
@@ -130,6 +117,19 @@ export default function Home() {
                 >
                   <Package className="mr-2 h-5 w-5" />
                   Get npm for Linux
+                </a>
+              </Button>
+              <Button
+                className="bg-gray-800 hover:bg-gray-700 text-white font-bold text-lg px-8 py-6 rounded-md transition-transform hover:scale-105 border border-gray-600 w-full sm:w-64"
+                asChild
+              >
+                <a
+                  href="https://github.com/amantus-ai/vibetunnel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="mr-2 h-5 w-5" />
+                  See Code on GitHub
                 </a>
               </Button>
             </div>
